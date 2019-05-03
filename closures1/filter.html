@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function filter(arr, func) {
+            let newArr = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                let value = arr[i];
+                if ( func(value) ) {
+                    newArr.push(value);
+                };
+            };
+
+            return newArr;
+            
+        };
+        
+
+        function inBetween(a, b) {
+            // if (value >= a && value <= b) {
+            //     return true;
+            // } else {
+            //     return false;
+            // };
+
+            return function(value) {
+                return value >= a && value <= b;
+            };
+
+        };
+
+        // 1-ый способ решения inArray (лучший) 
+
+        function inArray(array) {
+            return function(value) {
+                return array.indexOf(value) !== -1;
+            }
+        }
+
+        // 2-ой способ решения inArray (хороший)
+
+        // function inArray(array) {
+        //     return function(value) {
+        //         for (let k = 0; k < array.length; k++) {
+        //             if (value == array[k]) {
+        //                 return true;
+        //             } else continue;
+        //         }
+
+        //         return false;
+        //     }
+        // }
+
+        // 3-ий способ решения inArray
+
+        // function inArray(array) {
+        //     return function(value) {
+        //         let result = false;
+        //         for (let k = 0; k < array.length; k++) {
+        //             if (!result) {
+        //                 result = value == array[k];
+        //             } else break;
+        //         };
+
+        //         return result;
+        //     };
+        // };
+
+
+
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+
+        alert(filter(arr, function(a) {
+            return a % 2 == 0;
+        })); // 2, 4, 6
+
+        // alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+
+        alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+
+
+    </script>
+</body>
+</html>

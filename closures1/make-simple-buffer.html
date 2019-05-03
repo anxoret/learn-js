@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function makeBuffer() {
+
+            let storage = "";
+
+            return function(a) {
+
+                if (arguments.length != 0) {
+                    storage = storage + a;
+                }
+
+                return storage;
+            }
+
+        }
+
+        let buffer = makeBuffer();
+
+        buffer("Замыкания");
+        buffer(" Использовать");
+        buffer(" Нужно!");
+        // buffer(0);
+        // buffer(1);
+        // buffer(0);
+        alert( buffer() ); // возвращает накопленные значения // Замыкания Использовать Нужно!
+
+
+
+
+    </script>
+</body>
+</html>

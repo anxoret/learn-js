@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function sum(a) {
+            // ЧТОБЫ ВТОРЫЕ СКОБКИ В ВЫЗОВЕ РАБОТАЛИ - ПЕРВЫЕ ДОЛЖНЫ ВОЗВРАЩАТЬ ФУНКЦИЮ
+            // решение либо так
+            // let sum = 0;
+            // sum = sum + a;
+
+            // return function(b) {
+            //     return sum + b;
+            // }
+
+            // а лучше так:
+            return function(b) {
+                return a + b; // возьмет 'a' из внешнего LexicalEnvironment
+            };
+
+        };
+
+        alert(  sum(1)(2)  );
+        alert(  sum(5)(-1)  );
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

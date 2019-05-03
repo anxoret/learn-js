@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function makeBuffer() {
+
+            let storage = "";
+
+            function buffer(a) {
+
+                if (arguments.length != 0) {
+                    storage = storage + a;
+                }
+
+                return storage;
+               
+            }
+
+            buffer.clear = function() {
+                storage = "";
+            }
+
+            return buffer;
+            
+        }
+
+        let buffer = makeBuffer();
+
+        buffer("Тест");
+        buffer(" тебя не съест ");
+        alert( buffer() ); // Тест тебя не съест
+
+        buffer.clear();
+
+        alert( buffer() ); // ""
+
+
+
+    </script>
+</body>
+</html>

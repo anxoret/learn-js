@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // первый способ (без this) более длинный и сложный
+
+        // let calculator = {
+
+        //     read: function() {
+
+        //         calculator.values = [];
+
+        //         for (let i = 0; i < 2; i++) {
+        //             let val = prompt("Напишите значение", "1");
+        //             calculator.values.push(val);
+        //         };
+
+        //     },
+
+        //     sum: function() {
+
+        //         let sumOfValues = 0;
+                
+        //         for (let i = 0; i < calculator.values.length; i++) {
+        //            sumOfValues = sumOfValues + +calculator.values[i];
+        //         };
+
+        //         return sumOfValues;
+
+        //     },
+
+        //     mul: function() {
+
+        //         let mulOfValues;
+
+        //         if (!calculator.values.length) {
+        //             mulOfValues = 0;
+        //         } else {
+        //             mulOfValues = 1;
+        //         }
+
+        //         for (let i = 0; i < calculator.values.length; i++) {
+        //            mulOfValues = mulOfValues * calculator.values[i];
+        //         };
+
+        //         return mulOfValues;
+
+        //     }
+
+        // };
+
+        // calculator.read();
+        // alert( calculator.sum() );
+        // alert( calculator.mul() );
+
+        // 2 способ (лучший и самый лёгкий)
+
+        let calculator = {
+
+            read: function() {
+                // let a = +prompt("Напишите 1-ое число", "1");
+                // let b = +prompt("Напишите 2-ое число", "1");
+                // this.a = a;
+                // this.b = b;
+
+                // а лучше верхее переписать проще:
+                this.a = +prompt("Напишите 1-ое число", "1");
+                this.b = +prompt("Напишите 2-ое число", "1");
+            },
+
+            sum: function() {
+                return this.a + this.b; 
+            },
+
+            mul: function() {
+                return this.a * this.b;
+            }
+
+            };
+
+        calculator.read();
+        alert( calculator.sum() );
+        alert( calculator.mul() );
+        
+    </script>
+</body>
+</html>

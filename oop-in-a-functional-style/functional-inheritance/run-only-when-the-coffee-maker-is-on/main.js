@@ -50,16 +50,16 @@ function CoffeeMachine(power, capacity) {
     };
 
     this.enable = function() {
-        enabled = true;
+        this._enabled = true;
     };
 
     this.disable = function() {
-        enabled = false;
+        this._enabled = false;
     };
   
 };
 
 let coffeeMachine = new CoffeeMachine(10000);
-coffeeMachine.run(); // ошибка, кофеварка выключена!
+//coffeeMachine.run(); // ошибка, кофеварка выключена!
 coffeeMachine.enable();
 coffeeMachine.run(); // ...Кофе готов!

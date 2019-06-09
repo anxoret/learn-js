@@ -2,14 +2,14 @@ function Machine(power) {
     this._power = power;
     this._enabled = false;
 
-    // let self = this;
+     let self = this;
 
     this.enable = function() {
-      this._enabled = true;
+      self._enabled = true;
     };
 
     this.disable = function() {
-      this._enabled = false;
+      self._enabled = false;
     };
 };
 
@@ -23,7 +23,7 @@ function Fridge(power) {
     let parentDisable = this.disable;
 
     this.disable = function() {
-        if  (food != []) {
+        if  (food.length) {
             throw new Error ("В холодильнике есть еда, поэтому его нельзя выключить.")
         };
         parentDisable();
@@ -31,7 +31,7 @@ function Fridge(power) {
  
     this.addFood = function(item) {
 
-        if (!this._enabled /*= false*/ ) {
+        if (!this._enabled /*== false*/ ) {
             throw new Error ("Холодильник выключен. Вы не можете добавить еду.");
         };
 

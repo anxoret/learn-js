@@ -2,7 +2,7 @@ function Machine(power) {
     this._power = power;
     this._enabled = false;
 
-     let self = this;
+    let self = this;
 
     this.enable = function() {
       self._enabled = true;

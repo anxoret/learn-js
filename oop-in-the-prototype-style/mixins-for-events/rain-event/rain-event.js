@@ -50,3 +50,4 @@ rain.on("rainStop", function(){
 // Запускаем выбор (событие rainAction вызовет обработчики)
 rain.action();
 rain.stop();
+

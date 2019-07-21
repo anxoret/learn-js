@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>Пользователи:</div>
+    <ul>
+        <li>Маша</li>
+        <li>Вовочка</li>
+    </ul>
+    
+    <!-- комментарий -->
+    
+    <script>
+
+        // получаем элемент head
+        let elemHead = document.documentElement.firstChild; 
+        // либо document.documentElement.children[0]
+        alert(elemHead);
+
+        // получаем ul
+        // элементы childNodes: 0text > 1div > 2text > 3UList > 4Text > 5comment > 6text > 7script
+        let elemUl = document.body.childNodes[3]; // либо document.body.children[1];
+        alert(elemUl);
+
+        // получаем второй li
+        // childNodes ul = 0text > 1li > 2text > 3li > 4text
+        let elemLi2 = elemUl.childNodes[3]; // либо document.body.children[1].children[1];
+        alert(elemLi2);
+
+    </script>
+</body>
+</html>

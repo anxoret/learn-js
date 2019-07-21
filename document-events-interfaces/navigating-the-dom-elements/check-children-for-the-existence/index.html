@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>Пользователи:</div>
+    <ul>
+        <li>Маша</li>
+        <li>Вовочка</li>
+    </ul>
+    
+    <!-- комментарий -->
+    
+    <script>
+
+        function check(elem) {
+            
+            // можно использовать один из 3-х вариантов проверки на наличие 
+            // дочерних узлов (даже тестовых) в элементе elem:
+
+            if (!elem.childNodes.length) { /* */ }
+
+            if (!elem.firstChild) { /* */ }
+
+            if (!elem.lastChild) { /* */ }
+
+        };
+
+    </script>
+</body>
+</html>

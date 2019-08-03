@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>Животные
+            <ul>
+            <li>Млекопитающие
+                <ul>
+                <li>Коровы</li>
+                <li>Ослы</li>
+                <li>Собаки</li>
+                <li>Тигры</li>
+                </ul>
+            </li>
+            <li>Другие
+                <ul>
+                <li>Змеи</li>
+                <li>Птицы</li>
+                <li>Ящерицы</li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+        <li>Рыбы
+            <ul>
+            <li>Аквариумные
+                <ul>
+                <li>Гуппи</li>
+                <li>Рыба-ангел</li>
+                </ul>
+            </li>
+            <li>Морские
+                <ul>
+                <li>Морская форель</li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+                    
+
+        for (let li of document.getElementsByTagName("li")) {
+            // текст без поддерева:
+            alert(li.firstChild.textContent);
+            // либо, как по Кантору, через li.firstChild.data
+
+            // число потомков всех вложенных <li> (включая глубоко вложенные):
+            alert(li.getElementsByTagName("li").length);
+
+        }
+            
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div data-widget-name="menu">Choose the genre</div>
+
+    <script>
+
+        let elem = document.querySelector("[data-widget-name]");
+        // или так: let elem = document.querySelectorAll("[data-widget-name]")[0];
+        alert(elem.dataset.widgetName); 
+        // или так: alert(elem.getAttribute("data-widget-name"));
+
+        
+    </script>
+    
+</body>
+</html>

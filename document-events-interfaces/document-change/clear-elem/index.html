@@ -19,9 +19,13 @@
     <script>
 
         function clear(elem) { 
-            // elem.remove(); // Работает. Но непонятно, можно ли подобное использовать..
-            // по-Канторовски лучше так:
             elem.innerHTML = "";
+
+            // либо так:
+            // while(elem.firstChild) {
+            //     elem.firstChild.remove();
+            // }
+
         };
 
         clear(elem); // очищает список

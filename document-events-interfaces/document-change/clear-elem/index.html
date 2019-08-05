@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>Ха</p>
+    <ol id="elem">
+        <li>Привет</li>
+        <li>Мир</li>
+    </ol>
+    <p>Хо</p>
+    <script>
+
+        function clear(elem) { 
+            // elem.remove(); // Работает. Но непонятно, можно ли подобное использовать..
+            // по-Канторовски лучше так:
+            elem.innerHTML = "";
+        };
+
+        clear(elem); // очищает список
+
+    </script>
+</body>
+
+</html>

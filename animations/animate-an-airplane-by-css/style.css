@@ -1,0 +1,5 @@
+#animated {
+    width: 40px;
+    height: 24px;
+    transition: all 3s;
+}

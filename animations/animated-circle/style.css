@@ -1,0 +1,18 @@
+.button {
+    margin: 10px;
+    width: 200px;
+    background-color: rgb(235, 206, 134);
+}
+
+.circle {
+    position: fixed;
+    border-radius: 50%;
+    background-color: palevioletred;
+}
+
+.animated {
+    transition-property: width, height, margin-left, margin-top;
+    transition-duration: 3s;
+    /* transition: all 3s; */
+    transform: translateX(-50%) translateY(-50%);
+}

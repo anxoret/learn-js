@@ -1,0 +1,24 @@
+.button {
+    margin: 10px;
+    width: 200px;
+    background-color: lightgreen; 
+}
+
+.circle {
+    position: fixed;
+    border-radius: 50%;
+    background-color: aquamarine;
+}
+
+.animated {
+    transition-property: width, height, margin-left, margin-top;
+    transition-duration: 2s;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.message-ball {
+    /* display: inline-block; 2-ой случай */
+    width: 87px; /* 2-ой случай */
+    margin: auto; /* 2-ой случай */
+    text-align: center;
+}

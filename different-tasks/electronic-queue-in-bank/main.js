@@ -104,7 +104,7 @@ function servingTimeForClients(numberOfClients, ...timeofClientsComming) {
 
 };
 
-alert( servingTimeForClients(2, [22, 35], [23, 5]) );
+alert( servingTimeForClients(5, [22, 35], [23, 5], [23, 6], [23, 7], [23, 8] ) );
 
 // servingTimeForClients(2, [22, 35], [23, 5]);
 // servingTimeForClients(1, [22, 35]);

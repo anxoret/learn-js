@@ -2,11 +2,13 @@ function createCalendar(elem, year, month) {
 
     let containerForCalendar = elem;
     let numberOfDaysInMoth = (new Date(year, month, 0)).getDate();
-    let weekNumberOfFirstDayOfMonth = (new Date(year, month, -1)).getDay();
+    let weekNumberOfFirstDayOfMonth = (new Date(year, month - 1, 1)).getDay(); 
 
     if (weekNumberOfFirstDayOfMonth == 0) {
         weekNumberOfFirstDayOfMonth = 7;
     }
+
+    alert(numberOfDaysInMoth);
 
     let table = document.createElement("table");
     containerForCalendar.append(table);
@@ -114,4 +116,4 @@ cal.className = "container";
 document.body.append(cal);
 
 // createCalendar(cal, 2012, 9);
-createCalendar(cal, 2019, 9);
+createCalendar(cal, 2012, 9);

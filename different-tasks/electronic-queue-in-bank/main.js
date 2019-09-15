@@ -21,7 +21,7 @@ function determineEndTimeOfService(clientNumber) {
     let dateAfterService = new Date(date);
     dateAfterService.setMinutes(date.getMinutes() + 30);
 
-    alert(`Время ухода клиента:\n ${dateAfterService.getHours()}:${dateAfterService.getMinutes()}`);
+    // alert(`Время ухода клиента:\n ${dateAfterService.getHours()}:${dateAfterService.getMinutes()}`);
 
     let endOfServingThisClient = [];
     endOfServingThisClient.push( dateAfterService.getHours() );
@@ -77,11 +77,55 @@ function directClientToTheWindow(clientNumber) {
    
 };
 
+function countAllClients(newClients) {
+    let allClientsNumber = ClientsOfWindowOne.length 
+        + ClientsOfWindowTwo.length
+        + ClientsOfWindowThree.length
+        + queueOfClients.length
+        + newClients;
+
+    return allClientsNumber;
+
+};
+
+function compareClientsByMinutesOfComming(a, b) {
+    if (a[2] > b[2]) return 1;
+    if (a[2] == b[2]) return 0;
+    if (a[2] < b[2]) return -1;
+};
+
+function cleanArrayAfterSortingByTime(array) {
+    array.forEach(element => {
+        element.splice(2, 1);
+    });
+};
+
+function sortClientsByTime(timeofClientsComming) {
+
+    timeofClientsComming.forEach(timeOfComming => {
+        let timeOfCommingInMinutes = timeOfComming[0] * 60 + timeOfComming[1];
+        timeOfComming[2] = timeOfCommingInMinutes;
+    });
+
+    timeofClientsComming.sort(compareClientsByMinutesOfComming);
+
+    cleanArrayAfterSortingByTime(array);
+
+    return timeofClientsComming;
+
+};
+
 function servingTimeForClients(numberOfClients, ...timeofClientsComming) {
 
-    if (numberOfClients.length > 100) {
-        throw new Error("Количество клиентов не может превышать 100");
+    if (numberOfClients !== timeofClientsComming.length) {
+        throw new Error("Некорректная передача параметров в функцию.");
     }
+
+    if ( countAllClients(numberOfClients) >= 100) {
+        throw new Error("Количество всех клиентов не может превышать 100");
+    }
+
+    sortClientsByTime(timeofClientsComming);
 
     for (let i = 0; i < numberOfClients; i++) {
 
@@ -101,13 +145,36 @@ function servingTimeForClients(numberOfClients, ...timeofClientsComming) {
 
     return timesOfTheEndOfServing;
 
-
 };
 
-alert( servingTimeForClients(5, [22, 35], [23, 5], [23, 6], [23, 7], [23, 8] ) );
+// alert( servingTimeForClients(5, [22, 35], [23, 5], [23, 6], [23, 7], [23, 8] ) );
+
+// let result = servingTimeForClients(5, [22, 35], [23, 5], [23, 6], [23, 7], [23, 35] );
+let result = servingTimeForClients(5, [21, 35], [20, 5], [21, 4], [23, 35], [23, 7] );
+
+// servingTimeForClients(100, [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+//                         [22, 35], [23, 5], [23, 6], [23, 7], [23, 35], [22, 35], [23, 5], [23, 6], [23, 7], [23, 35],
+
+
+// );
+
+// result.forEach(alert);
+
+
+// 23,5 | 23,35 | 23,36 | 23,35 | 00,3 
 
 // servingTimeForClients(2, [22, 35], [23, 5]);
 // servingTimeForClients(1, [22, 35]);
+
+
 
 
 

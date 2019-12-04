@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    Чтобы включить модули:
+    1. установи Node JS
+    2. вызови консоль и набери команду npm install -g live-server
+    3. через консоль зайди в директорию где находится твой html файл с подключением модульного скрипта
+    4. запусти в консоли команду live-server
+    5. profit!
+
+    когда ты в html запускаешь скрипт, то делается http запрос к файлу скрипта, 
+    и в http запрос добавляется заголовок type=module, согласно договоренностям HTTP CORS этот заголовок не является разрешенным, 
+    поэтому у тебя всегда будет ошибка при обычном браузерном запуске html файла с модульным скриптом
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
